@@ -25,6 +25,9 @@ export default {
          bu2:'清华大学'
        }
     }
+  },
+  mounted(){
+    console.log('init',this)
   }
 }
 </script>

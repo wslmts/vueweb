@@ -9,27 +9,49 @@
       </section>
       <template slot="footer">客服：400618</template>
     </HelloWorld>
-    <j-button class="{'border-radius':'5px'}">确定</j-button>
+    <j-button :classNames="classObject" @click.native="clickH" @click-c="clickH"
+    id="btn" name="custombtn" type="button" v-bind="$props">确定</j-button>
+
+    <details>
+      <summary></summary>
+      <note-book></note-book>
+    </details>
+   
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
 import Button from './components/Button'
-import './assets/a.css'
+import NoteBook from './components/NoteBook'
 export default {
   name: 'App',
+  custom:'自定义属性更好一些',
   data(){
     return {
-      msg:"hahaha"
+      _privateData:'不被跟踪的数据',
+      msg:"hahaha",
+      params:{name:'abc'},
+      classObject: {
+        active: true,
+        'text-danger': false
+      }
     }
   },
   components: {
-    HelloWorld,JButton:Button
+    HelloWorld,JButton:Button,NoteBook
+  },
+  mounted(){
+    console.log('init app',this)
   },
   methods:{
     change(){
+      console.log(123,this.$data._privateData)
+      console.log(123,this.$options.custom)
       this.msg='welcome to vue'
+    },
+    clickH(msg){
+      alert(msg)
     }
   }
 }
