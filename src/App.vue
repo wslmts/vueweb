@@ -17,6 +17,7 @@
       <note-book></note-book>
     </details>
    
+   <city/>
   </div>
 </template>
 
@@ -24,6 +25,7 @@
 import HelloWorld from './components/HelloWorld'
 import Button from './components/Button'
 import NoteBook from './components/NoteBook'
+import City from './components/City'
 export default {
   name: 'App',
   custom:'自定义属性更好一些',
@@ -39,7 +41,7 @@ export default {
     }
   },
   components: {
-    HelloWorld,JButton:Button,NoteBook
+    HelloWorld,JButton:Button,NoteBook,City
   },
   mounted(){
     console.log('init app',this)
