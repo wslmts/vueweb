@@ -4,11 +4,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vueweb</title>
-    
+    <style>
+     #watermark{
+       position: fixed;
+       top:0;
+       bottom:0;
+       left:0;
+       right: 0;
+       pointer-events: none;
+     }
+    </style>
   </head>
   <body>
+    <a href="/admin.html">新页面</a>
     <div id="app"></div>
-    
+    <input type="checkbox" id="checkbox" indeterminate="indeterminate">
+    <img id="img"/>
+    <script>
+  document.querySelector('#checkbox').indeterminate=true
+    </script>
     <!-- built files will be auto injected -->
+    <div id="watermark"></div>
+    <script>
+      var cas=document.createElement('canvas');
+      var ctx=cas.getContext('2d');
+      cas.width='250px';
+      cas.height='150px';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('zcc',120,75)
+      ctx.rotate('30deg');
+      ctx.font = "20px microsoft yahei",
+      ctx.fillStyle = 'rgba(184, 184, 184, 0.8)';
+      var url=cas.toDataURL();
+      document.getElementById('img').src=url
+      document.getElementById('watermark').style.backgroundImage='url:('+url+')'
+    </script>
   </body>
 </html>

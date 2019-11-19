@@ -1,6 +1,6 @@
 <template>
     <ul>
-      <li v-for="v of list" :key="v.id" @click="v.expand=!v.expand">{{v.name}}--{{v.expand}}
+      <li v-for="v of list" :key="v.id" @click="handleExpand(v)">{{v.name}}--{{v.expand}}
       <template  v-if="v.children">
       <div v-show="v.expand">
          <tree-node :list="v.children"></tree-node>
@@ -19,7 +19,9 @@ export default {
     }
   },
   methods:{
-
+   handleExpand(v){
+     this.$set(v, 'expand', !v.expand);
+   }
   }
 }
 </script>
